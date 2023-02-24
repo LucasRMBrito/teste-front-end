@@ -26,18 +26,12 @@ function App() {
       }
     }
 
-    const test = () => {
-      console.log('teste')
-    }
-    useEffect (() => {
-      test ()
-    },[] )
+  const getProduto = async () => {
 
-  const getProduto = () => {
-    axios.get(`http://18.228.117.111:3000/produto`)
-    .then(response => {
-      const dados = response.data
-      console.log(dados)        
+    try{
+      const response = await axios.get(`http://18.228.117.111:3000/produto`)
+      console.log(response.data)
+      const dados = response.data        
       const nomeproduto = document.querySelector('.nome-produto')
       let lista = []
       dados.forEach((nome, index) => {
@@ -54,9 +48,12 @@ function App() {
             `
       })
       nomeproduto.innerHTML = lista
-    })
-    .catch(error => console.log(error)) 
+    }
+    catch(error){
+      console.log(error)
+    }
   }
+
   useEffect(()=>{
     getProduto()
   })
