@@ -29,7 +29,7 @@ function App() {
   const getProduto = async () => {
 
     try{
-      const response = await axios.get(`http://18.228.117.111:3000/produto`)
+      const response = await axios.get(`https://18.228.117.111:3000/produto`)
       console.log(response.data)
       const dados = response.data        
       const nomeproduto = document.querySelector('.nome-produto')
@@ -56,7 +56,7 @@ function App() {
 
   useEffect(()=>{
     getProduto()
-  })
+  },[])
 
   const apagarProduto = (id) => {
     id = apagado
