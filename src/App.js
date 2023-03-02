@@ -29,7 +29,7 @@ function App() {
   const getProduto = async () => {
 
     try{
-      const response = await axios.get(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:3000/produto`)
+      const response = await axios.get(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:5000/produto`)
       console.log(response.data)
       const dados = response.data        
       const nomeproduto = document.querySelector('.nome-produto')
@@ -60,7 +60,7 @@ function App() {
 
   const apagarProduto = (id) => {
     id = apagado
-    axios.delete(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:3000/produto/${id}`)
+    axios.delete(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:5000/produto/${id}`)
     .then(response => {
         alert(JSON.stringify(response.data))
     })
@@ -123,7 +123,7 @@ function App() {
       preco: precoProduto,
       descricao: descricaoProduto,
     }
-    axios.post(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:3000/produto`, novoProduto)
+    axios.post(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:5000/produto`, novoProduto)
     .then(response => {
         console.log(response)
         console.log(response.data)
@@ -145,7 +145,7 @@ function App() {
         return
     }
 
-    axios.patch(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:3000/produto/${id}`, produtoAtualizado)
+    axios.patch(`http://ec2-18-229-156-216.sa-east-1.compute.amazonaws.com:5000/produto/${id}`, produtoAtualizado)
     .then(response => {
       alert('Produto Atualizado!')
     console.log('Recurso atualizado com sucesso:', response.data);
